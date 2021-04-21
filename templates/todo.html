@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do Items</title>
+    </head>
+    <body>
+        <h2> To Do Items</h2>
+        <form action='/submit' method="post">
+            <label for "task"> Enter Task:</label>
+            <input type="text" id="task" name="task">
+            <label for "email"> Enter E-mail:</label>
+            <input type="text" id="email" name="email">
+            <select id="priority" name="priority">
+                <option selected="selected" value="select">Select Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <input type="submit" value="Add To Do Item">
+        </form>
+        <p>Here are all the To Do Items we have collected:</p>
+        <ul>
+            {% for Task, Email, Priority in todolist %}
+            <li>{{ Task, Email, Priority }}</li>
+            {% endfor %}
+        </ul>
+        <form action='/clear' method="post">
+            <input type="submit" value="Clear">
+        </form>
+        <form action='/save' method="post">
+            <input type="submit" value="Save">
+        </form>
+        <p>LETS GET IT DONE!</p>
+    </body>
+</html>
